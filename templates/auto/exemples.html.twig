@@ -1,0 +1,46 @@
+{# pour que mon enfant hérite de ma base.html.twig #}
+
+{% extends"base.html.twig" %}
+
+
+{# Change mon title  #}
+
+{% block title %} {{parent()}} Exemple {% endblock %}
+
+
+{% block body %}
+
+<!-- Permet de rendre le titre dynamique #} -->
+<h1>{{ titre }}</h1>
+
+<!-- Test avec résultat booléen -->
+{% if test %}
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolores expedita rem, in quisquam aliquam rerum laudantium quaerat recusandae illo reprehenderit. Molestiae, corporis vitae officiis labore facilis excepturi iste doloribus.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium corporis vel, ab illum laborum ipsum autem repellendus esse id ullam quos sed, atque omnis quisquam at labore dicta. Ex, error!</p>
+
+{% else %}
+    <p>Vous n'etes pas l'administrateur</p>
+    
+{% endif %}
+
+<!-- Test pour voir les conditions  -->
+{% if age >= 18 %}
+    <p>Tu peux aller en boite</p>
+{% else %}
+    <p>Non Maryama, vas dormir tu es trop jeune</p>
+{% endif %}
+
+<!-- Une boucle pour afficher nos voitures -->
+<ul>
+    {% for voiture in voitures %}
+        <li> {{voiture | upper }} </li>
+    {% endfor %}
+</ul>
+    
+<!-- Affichage de mon image -->
+<img src="images/images.jpg" alt="yatch">
+
+<!-- Affichage d'image 2nde méthode : asset() -->
+<img src="{{ asset('images/téléchargement.jpg') }}" alt="">
+{% endblock body %}

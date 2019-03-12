@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<!-- Fonction de dump dans twig afin de voir si on récuperer nos données qui se situe dans un tableau-->
+<!-- {{ dump(voitures) }} -->
+    <h1>Données</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Marque</th>
+                <th>Modele</th>
+                <th>Pays</th>
+                <th>Photo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for voiture in voitures %}
+                <tr>
+                    <td>{{ voiture.Id }}</td>
+                    <td>{{ voiture.Marque }}</td>
+                    <td>{{ voiture.Modele }}</td>
+                    <td>{{ voiture.Pays }}</td>
+                    <td> <img src=" {{ voiture.Photo }}" alt="" width="100" ></td>
+                </tr>
+            {% endfor %}    
+        </tbody>
+
+    </table>
+
+
+
+
+
+{% endblock body %}
