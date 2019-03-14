@@ -13,6 +13,7 @@
                 <th>Modele</th>
                 <th>Pays</th>
                 <th>Photo</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -23,8 +24,16 @@
                     <td>{{ voiture.Modele }}</td>
                     <td>{{ voiture.Pays }}</td>
                     <td> <img src=" {{ voiture.Photo }}" alt="" width="100" ></td>
+                    <td>
+                        <a data-toggle="modal" data-target="#myModal{{ voiture.Id }}" class="btn btn-info">Détails</a>
+                    </td>
                 </tr>
-            {% endfor %}    
+                <!-- Inclusion de mon modal -->
+                {% include "auto/modal.html.twig" %}
+                
+            {% endfor %} 
+            
+
         </tbody>
 
     </table>

@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+
+{% form_theme form_produit 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+    <h2>Formulaire d'ajout</h2>
+   {{form(form_produit)}}
+
+{% endblock %}

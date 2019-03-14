@@ -17,4 +17,10 @@
         <li>Your template at <code><a href="{{ 'C:/wamp64/www/larry/composer/exemple/garage/templates/auto/index.html.twig'|file_link(0) }}">templates/auto/index.html.twig</a></code></li>
     </ul>
 </div>
+
+<!-- Inclusion des balises script -->
+{% block javascripts %}
+    <script src="{{ asset('js/script.js') }}" > </script>
+{% endblock %}
+
 {% endblock %}

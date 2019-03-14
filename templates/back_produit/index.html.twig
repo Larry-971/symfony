@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BackProduitController!{% endblock %}
+
+{% block body %}
+    <h2>Liste de mes produit</h2>
+    <a href="{{ path('back_produit_add') }}" class="btn btn-warning text-rigth ">Nouveau produit</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Marque</th>
+                <th>Prix</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tp in tabProduits %}
+                <tr>
+                    <td>{{ tp.id }}</td>
+                    <td>{{ tp.nom }}</td>
+                    <td>{{ tp.marque }}</td>
+                    <td>{{ tp.prix }}</td>
+                    <td><img src="asset('uploads/images/'~tp.image}}" alt="image" width="150" height="100" > </td>
+                    <td>{{ tp.description }}</td>
+                    <td>
+                        <a href="{{ path('back_produit_editUpdate', {'id' : tp.id}) }}" class="btn btn-primary"> Edit</a>
+                        <a onclick="return confirm('Voulez-vous vraiment supprimer ?')"  href="{{ path('back_produit_delete', {'id' : tp.id}) }}" class="btn btn-danger" >Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}    
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+{% endblock %}
